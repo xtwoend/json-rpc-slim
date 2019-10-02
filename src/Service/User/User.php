@@ -2,6 +2,7 @@
 
 namespace App\Service\User;
 
+use App\Service\AbstractEvaluator;
 use Datto\JsonRpc\Evaluator;
 use Datto\JsonRpc\Exceptions\ArgumentException;
 use Datto\JsonRpc\Exceptions\Exception;
@@ -11,7 +12,7 @@ use Datto\JsonRpc\Responses\ErrorResponse;
 /**
 * User Service
 */
-class User implements Evaluator
+class User extends AbstractEvaluator implements Evaluator
 {
     protected $repository;
 
@@ -22,19 +23,13 @@ class User implements Evaluator
 
     public function evaluate($method, $arguments)
     {
-        switch ($method) {
-            case 'findAll':
-                return self::findAll();
-                break;
-                
-            case 'show':
-                return self::show($arguments);
-                break;
+        $this->arguments = $arguments;
 
-            default:
-                throw new MethodException();
-                break;
+        if(! method_exists(self::class, $method)){
+            throw new MethodException();
         }
+        
+        return call_user_func([self::class, $method]);
     }
 
     private function findAll()
@@ -42,16 +37,14 @@ class User implements Evaluator
         return $this->repository->findAll();
     }
 
-    private function show($arguments)
+    private function show()
     {
-        if(! isset($arguments['id'])){
-            throw new ArgumentException();
-        }
+        $schema = file_get_contents(__DIR__.'/Schema/findById.json');
 
-        if (!is_int($arguments['id'])) {
+        if(! $this->schemaValidator($schema)){
             throw new ArgumentException();
         }
         
-        return $this->repository->findUserOfId($arguments['id']);
+        return $this->repository->findUserOfId($this->arguments['id']);
     }
 }
