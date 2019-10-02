@@ -13,9 +13,12 @@ class UserService extends AbstractService
 {
     protected $userRepository;
 
-    public function __construct(LoggerInterface $logger, UserRepository $userRepository)
+    /**
+     * [__construct description]
+     * @param UserRepository $userRepository [description] with
+     */
+    public function __construct(UserRepository $userRepository)
     {
-        parent::__construct($logger);
         $this->userRepository = $userRepository;
     }
 

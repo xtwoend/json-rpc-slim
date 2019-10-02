@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e641a776a5fe33d080469088eeb11a9",
+    "content-hash": "2c9020c46d2c8f681af1e5872fc24ede",
     "packages": [
         {
             "name": "datto/json-rpc",
@@ -390,6 +390,69 @@
                 "php"
             ],
             "time": "2019-09-01T07:51:21+00:00"
+        },
+        {
+            "name": "opis/json-schema",
+            "version": "1.0.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opis/json-schema.git",
+                "reference": "19868514d5e4c27553b21c7f0cf6388734c67d18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opis/json-schema/zipball/19868514d5e4c27553b21c7f0cf6388734c67d18",
+                "reference": "19868514d5e4c27553b21c7f0cf6388734c67d18",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "ext-bcmath": "*",
+                "ext-intl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "opis/string": "^1.4",
+                "phpunit/phpunit": "^6.5"
+            },
+            "suggest": {
+                "opis/string": "A standalone library for manipulating multibyte strings"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Opis\\JsonSchema\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Marius Sarca",
+                    "email": "marius.sarca@gmail.com"
+                },
+                {
+                    "name": "Sorin Sarca",
+                    "email": "sarca_sorin@hotmail.com"
+                }
+            ],
+            "description": "Json Schema Validator",
+            "homepage": "http://www.opis.io/json-schema",
+            "keywords": [
+                "json",
+                "schema",
+                "validation",
+                "validator"
+            ],
+            "time": "2019-05-22T05:16:45+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -1149,6 +1212,48 @@
                 "shim"
             ],
             "time": "2019-08-06T08:03:45+00:00"
+        },
+        {
+            "name": "uma/json-rpc",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/1ma/JsonRpc.git",
+                "reference": "1df69f0a3f7d2c64a9c6cae7676ef2b357e0df49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/1ma/JsonRpc/zipball/1df69f0a3f7d2c64a9c6cae7676ef2b357e0df49",
+                "reference": "1df69f0a3f7d2c64a9c6cae7676ef2b357e0df49",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "opis/json-schema": "^1.0",
+                "php": ">=7.1",
+                "psr/container": "^1.0"
+            },
+            "require-dev": {
+                "phpmetrics/phpmetrics": "^2.4",
+                "phpunit/phpunit": "^7.0",
+                "uma/dic": "^1.0"
+            },
+            "suggest": {
+                "ext-pcntl": "Needed to use the ConcurrentServer",
+                "ext-simdjson": "Allows for faster JSON decoding"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UMA\\JsonRpc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "a JSON-RPC 2.0 server",
+            "time": "2019-08-11T22:30:09+00:00"
         }
     ],
     "packages-dev": [

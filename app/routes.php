@@ -14,6 +14,7 @@ return function (App $app) {
         return $response;
     });
 
-    // Service Handle via http
+    //JSON-RPC Service Handle via http
     $app->post('/users', \App\Service\User\UserService::class);
+    
 };

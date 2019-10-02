@@ -2,17 +2,15 @@
 
 namespace App\Repository\User;
 
-use Datto\JsonRpc\Exceptions\ApplicationException;
+use App\Repository\Exception\RepositoryNotFoundException;
 
 /**
 * 
 */
-class UserNotFoundException extends ApplicationException
+class UserNotFoundException extends RepositoryNotFoundException
 {
     public $message = 'The user you requested does not exist.';
-
-    public function __construct()
-    {
-        parent::__construct($this->message, 404, []);
-    }
+    public $data = [
+        'line' => 'error handle' 
+    ];
 }
